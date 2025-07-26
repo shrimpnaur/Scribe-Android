@@ -16,9 +16,9 @@ import android.text.InputType.TYPE_CLASS_NUMBER
 import android.text.InputType.TYPE_CLASS_PHONE
 import android.text.InputType.TYPE_MASK_CLASS
 import android.text.TextUtils
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
-import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.EditorInfo.IME_ACTION_NONE
 import android.view.inputmethod.EditorInfo.IME_FLAG_NO_ENTER_ACTION
@@ -569,7 +569,6 @@ abstract class GeneralKeyboardIME(
         binding.commandOptionsBar.visibility = View.VISIBLE
         binding.toolbarBar.visibility = View.GONE
 
-
         val isUserDarkMode = getIsDarkModeOrNot(applicationContext)
 
         binding.commandOptionsBar.setBackgroundColor(
@@ -585,7 +584,7 @@ abstract class GeneralKeyboardIME(
 
         val langAlias = getLanguageAlias(language)
 
-        updateButtonVisibility(isAutoSuggestEnabled =false)
+        updateButtonVisibility(isAutoSuggestEnabled = false)
         setCommandButtonListeners()
 
         val buttonTextColor = if (isUserDarkMode) Color.WHITE else Color.BLACK
@@ -1451,8 +1450,6 @@ abstract class GeneralKeyboardIME(
         }
     }
 
-
-
     /**
      * Handles the logic when a word has multiple possible genders or
      * cases but only one suggestion slot is available.
@@ -1525,10 +1522,12 @@ abstract class GeneralKeyboardIME(
         binding.pluralBtn.setOnClickListener(null)
         handleTextSizeForSuggestion(binding.translateBtn)
     }
+
     /**
      * Sets the text size and color for a default, non-active suggestion button.
      * @param button The button to style.
      */
+
     private fun handleTextSizeForSuggestion(button: Button) {
         button.textSize = SUGGESTION_SIZE
         val isUserDarkMode = getIsDarkModeOrNot(applicationContext)
